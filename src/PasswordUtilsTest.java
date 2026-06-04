@@ -46,4 +46,96 @@ assertEquals("short", PasswordUtils.describePasswordLength("abcde"));
         assertTrue(PasswordUtils.containsTriple("heyyyy"));
     }
 
+    
+    @Test
+    void testContainsTripleWhenPasswordDoesNotHaveTriple() {
+        assertFalse(PasswordUtils.containsTriple("password"));
+    }
+
+    @Test
+    void testContainsTripleWhenRepeatedCharactersAreNotInARow() {
+        assertFalse(PasswordUtils.containsTriple("papapassword"));
+    }
+
+    @Test
+    void testContainsTripleWithShortPassword() {
+        assertFalse(PasswordUtils.containsTriple("aa"));
+    }
+
+    @Test
+    void testCountSpecialCharactersWithNoSpecialCharacters() {
+        assertEquals(0, PasswordUtils.countSpecialCharacters("abc123"));
+    }
+
+    @Test
+    void testCountSpecialCharactersWithSomeSpecialCharacters() {
+        assertEquals(3, PasswordUtils.countSpecialCharacters("abc!@#123"));
+    }
+
+    @Test
+    void testCountSpecialCharactersWithSpaces() {
+        assertEquals(2, PasswordUtils.countSpecialCharacters("hello world!"));
+    }
+
+    @Test
+    void testHasSufficientSpecialCharactersWhenEnough() {
+        assertTrue(PasswordUtils.hasSufficientSpecialCharacters("abc!@#123", 3));
+    }
+
+    @Test
+    void testHasSufficientSpecialCharactersWhenExactlyMinimum() {
+        assertTrue(PasswordUtils.hasSufficientSpecialCharacters("abc!123", 1));
+    }
+
+    @Test
+    void testHasSufficientSpecialCharactersWhenNotEnough() {
+        assertFalse(PasswordUtils.hasSufficientSpecialCharacters("abc!123", 2));
+    }
+
+    
+    @Test
+    void testContainsTripleWhenPasswordDoesNotHaveTriple() {
+        assertFalse(PasswordUtils.containsTriple("password"));
+    }
+
+    @Test
+    void testContainsTripleWhenRepeatedCharactersAreNotInARow() {
+        assertFalse(PasswordUtils.containsTriple("papapassword"));
+    }
+
+    @Test
+    void testContainsTripleWithShortPassword() {
+        assertFalse(PasswordUtils.containsTriple("aa"));
+    }
+
+    @Test
+    void testCountSpecialCharactersWithNoSpecialCharacters() {
+        assertEquals(0, PasswordUtils.countSpecialCharacters("abc123"));
+    }
+
+    @Test
+    void testCountSpecialCharactersWithSomeSpecialCharacters() {
+        assertEquals(3, PasswordUtils.countSpecialCharacters("abc!@#123"));
+    }
+
+    @Test
+    void testCountSpecialCharactersWithSpaces() {
+        assertEquals(2, PasswordUtils.countSpecialCharacters("hello world!"));
+    }
+
+    @Test
+    void testHasSufficientSpecialCharactersWhenEnough() {
+        assertTrue(PasswordUtils.hasSufficientSpecialCharacters("abc!@#123", 3));
+    }
+
+    @Test
+    void testHasSufficientSpecialCharactersWhenExactlyMinimum() {
+        assertTrue(PasswordUtils.hasSufficientSpecialCharacters("abc!123", 1));
+    }
+
+    @Test
+    void testHasSufficientSpecialCharactersWhenNotEnough() {
+        assertFalse(PasswordUtils.hasSufficientSpecialCharacters("abc!123", 2));
+    }
+
 }
