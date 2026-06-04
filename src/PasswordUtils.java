@@ -36,7 +36,21 @@ public class PasswordUtils {
                 return true;
             }
         }
-        return true;
+
+          public static boolean containsTriple(String password) {
+        for (int i = 0; i < password.length() - 2; i++) {
+            char first = password.charAt(i);
+            char second = password.charAt(i + 1);
+            char third = password.charAt(i + 2);
+
+            if (first == second && second == third) {
+                return true;
+            }
+        }
+
+        return false;
+
     }
+}
 
 }
